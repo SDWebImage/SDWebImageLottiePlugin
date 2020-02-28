@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SDWebImageLottiePlugin_Example' do
+  pod 'SDWebImageLottiePlugin', :path => '../'
+
+  target 'SDWebImageLottiePlugin_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
