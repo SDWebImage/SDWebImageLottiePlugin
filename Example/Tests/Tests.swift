@@ -1,5 +1,7 @@
 import XCTest
-import SDWebImageLottiePlugin
+import Lottie
+import SDWebImage
+@testable import SDWebImageLottiePlugin
 
 class Tests: XCTestCase {
     
@@ -18,11 +20,19 @@ class Tests: XCTestCase {
         XCTAssert(true, "Pass")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure() {
-            // Put the code you want to measure the time of here.
+    func testAnimatedImageViewLoad() {
+        let exception = self.expectation(description: "AnimationView load lottie URL")
+        let animationView = AnimationView()
+        let lottieURL = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/happy2016/data.json")
+        animationView.sd_setImage(with: lottieURL) { (image, error, cacheType, url) in
+            XCTAssertNil(error)
+            let lottieImage = try! XCTUnwrap(image)
+            XCTAssertTrue(lottieImage.isKind(of: LottieImage.self))
+            let animation = try! XCTUnwrap((lottieImage as! LottieImage).animation)
+            XCTAssertEqual(animation.size, CGSize(width: 1920, height: 1080))
+            exception.fulfill()
         }
+        self.waitForExpectations(timeout: 5, handler: nil)
     }
     
 }
