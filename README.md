@@ -88,9 +88,15 @@ After the Xcode project was opened, click `Run` to build and run the demo.
 
 ## Screenshot
 
++ iOS Demo
+
 <img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottiePlugin/master/Example/Screenshot/LottieDemo.gif" width="300" />
 
-The lottie json is from [lottie-web example](https://github.com/airbnb/lottie-web/tree/master/demo/gatin)
++ macOS Demo
+
+<img src="https://raw.githubusercontent.com/SDWebImage/SDWebImageLottiePlugin/master/Example/Screenshot/LottieDemo-macOS.gif" width="300" />
+
+The lottie json files are from [lottie-web example](https://github.com/airbnb/lottie-web)
 
 ## Author
 
