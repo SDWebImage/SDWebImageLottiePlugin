@@ -1,13 +1,15 @@
-//
-//  CompatibleAnimationView+WebCache.swift
-//  SDWebImageLottiePlugin
-//
-//  Created by 李卓立 on 2020/2/29.
-//
+/*
+* This file is part of the SDWebImage package.
+* (c) DreamPiggy <lizhuoli1126@126.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 import SDWebImage
 import Lottie
 
+#if os(iOS) || os(tvOS)
 /// These code is from https://github.com/airbnb/lottie-ios/pull/1123/files
 extension CompatibleAnimationView {
     @objc
@@ -82,3 +84,4 @@ extension CompatibleAnimationView {
         }
     }
 }
+#endif

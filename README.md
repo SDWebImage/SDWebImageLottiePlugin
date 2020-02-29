@@ -9,7 +9,9 @@
 [![codecov](https://codecov.io/gh/SDWebImage/SDWebImageLottiePlugin/branch/master/graph/badge.svg)](https://codecov.io/gh/SDWebImage/SDWebImageLottiePlugin)
 
 ## What's for
-SDWebImageLottiePlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the [Lottie](https://github.com/airbnb/lottie-ios) aniamtion loading from JSON file.
+SDWebImageLottiePlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the [Lottie](https://github.com/airbnb/lottie-ios) animation loading from JSON file.
+
+You can find more resource about about Lottie in their [Oficial Site](https://airbnb.design/lottie/).
 
 ## Requirements
 
@@ -17,6 +19,7 @@ SDWebImageLottiePlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebI
 + macOS 10.10+
 + tvOS 9+
 + Xcode 11+
++ Swift 5
 
 ## Installation
 
@@ -40,6 +43,8 @@ github "SDWebImage/SDWebImageLottiePlugin"
 #### Swift Package Manager (Xcode 11+)
 
 SDWebImageLottiePlugin is available through [Swift Package Manager](https://swift.org/package-manager).
+
+Note SwiftPM support iOS only, on tvOS && macOS support. If you want, ask Lottie community to add support to these platforms.
 
 ```swift
 let package = Package(

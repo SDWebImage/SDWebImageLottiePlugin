@@ -1,13 +1,15 @@
-//
-//  AnimatedControl+WebCache.swift
-//  SDWebImageLottiePlugin
-//
-//  Created by 李卓立 on 2020/2/29.
-//
+/*
+* This file is part of the SDWebImage package.
+* (c) DreamPiggy <lizhuoli1126@126.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 import SDWebImage
 import Lottie
 
+#if os(iOS) || os(tvOS)
 extension AnimatedControl {
     /**
      * Set the imageView `image` with an `url`, placeholder, custom options and context.
@@ -40,3 +42,4 @@ extension AnimatedControl {
         }
     }
 }
+#endif

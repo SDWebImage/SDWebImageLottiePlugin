@@ -1,9 +1,10 @@
-//
-//  LottieView+WebCache.swift
-//  SDWebImageLottiePlugin
-//
-//  Created by 李卓立 on 2020/2/28.
-//
+/*
+* This file is part of the SDWebImage package.
+* (c) DreamPiggy <lizhuoli1126@126.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 import SDWebImage
 import Lottie
@@ -26,7 +27,7 @@ extension AnimationView {
      *                       indicating if the image was retrieved from the local cache or from the network.
      *                       The fourth parameter is the original image url.
      */
-    public func sd_setImage(with url: URL?, placeholderImage placeholder: UIImage? = nil, options: SDWebImageOptions = [], context: [SDWebImageContextOption : Any]? = nil, progress progressBlock: SDImageLoaderProgressBlock? = nil, completed completedBlock: SDExternalCompletionBlock? = nil) {
+    public func sd_setImage(with url: URL?, placeholderImage placeholder: PlatformImage? = nil, options: SDWebImageOptions = [], context: [SDWebImageContextOption : Any]? = nil, progress progressBlock: SDImageLoaderProgressBlock? = nil, completed completedBlock: SDExternalCompletionBlock? = nil) {
         var context = context ?? [:]
         context[.animatedImageClass] = LottieImage.self
         self.sd_internalSetImage(with: url, placeholderImage: placeholder, options: options, context: context, setImageBlock: { [weak self] (image, data, cacheType, url) in

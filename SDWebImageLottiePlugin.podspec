@@ -32,6 +32,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'SDWebImageLottiePlugin/Classes/**/*'
 
+  s.pod_target_xcconfig = {
+    'SUPPORTS_MACCATALYST' => 'YES',
+    'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
+  }
+
   s.dependency 'SDWebImage', '~> 5.1'
   s.dependency 'lottie-ios', '~> 3.1'
 end
