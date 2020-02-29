@@ -44,7 +44,7 @@ github "SDWebImage/SDWebImageLottiePlugin"
 
 SDWebImageLottiePlugin is available through [Swift Package Manager](https://swift.org/package-manager).
 
-Note SwiftPM support iOS only, on tvOS && macOS support. If you want, ask Lottie community to add support to these platforms.
+Note: SwiftPM support iOS only, on tvOS && macOS support. If you want, ask Lottie community to add support to these platforms.
 
 ```swift
 let package = Package(
