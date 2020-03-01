@@ -49,6 +49,8 @@ If you really want Lottie 3 support, please checkout [1.x branch](https://github
 
 ## Usage
 
+### Load Lottie from remote JSON
+
 + Objective-C
 
 ```objective-c
@@ -63,6 +65,28 @@ NSURL *lottieJSONURL;
 let animationView: LOTAnimationView
 let lottieJSONURL: URL
 animationView.sd_setImage(with: lottieJSONURL)
+```
+
+### Advanced usage
+
+This Lottie plugin use a wrapper class `LOTAnimatedImage` because of SDWebImage's [customization architecture design](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#customization). Typically you should not care about this, however this can allows some advanced usage.
+
++ Objective-C
+
+```objective-c
+LOTComposition *composition = [LOTComposition animationFromJSON:jsonDict];
+LOTAnimatedImage *animatedImage = [[LOTAnimationImage alloc] initWithComposition:composition];
+// Snapshot Lottie animation frame
+UIImage *posterFrame = [animatedImage animatedImageAtIndex:0];
+```
+
++ Swift
+
+```swift
+let composition = LOTComposition(json: jsonDict)
+let animatedImage = LOTAnimationImage(composition: composition)
+// Snapshot Lottie animation frame
+UIImage *posterFrame = animatedImage.animatedImageFrame(at: 0)
 ```
 
 ## Demo
