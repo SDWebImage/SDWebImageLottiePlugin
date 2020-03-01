@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
 
-  s.source_files = 'SDWebImageLottiePlugin/Classes/**/*'
+  s.source_files = 'SDWebImageLottiePlugin/Classes/**/*', 'SDWebImageLottiePlugin/Module/SDWebImageLottiePlugin.h'
 
   s.pod_target_xcconfig = {
     'SUPPORTS_MACCATALYST' => 'YES',

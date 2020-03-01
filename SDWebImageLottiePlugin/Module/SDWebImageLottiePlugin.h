@@ -16,4 +16,6 @@ FOUNDATION_EXPORT const unsigned char SDWebImageLottiePluginVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SDWebImageLottiePlugin/PublicHeader.h>
 
-
+#import <SDWebImageLottiePlugin/LOTAnimationView+WebCache.h>
+#import <SDWebImageLottiePlugin/LOTAnimatedControl+WebCache.h>
+#import <SDWebImageLottiePlugin/LOTAnimatedImage.h>
