@@ -1,2 +1,2 @@
-github "SDWebImage/SDWebImage" ~> 5.1
+github "SDWebImage/SDWebImage" ~> 5.5
 github "airbnb/lottie-ios" ~> 2.5

@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'DreamPiggy' => 'lizhuoli1126@126.com' }
   s.source           = { :git => 'https://github.com/SDWebImage/SDWebImageLottiePlugin.git', :tag => s.version.to_s }
-  s.swift_version = '5.0'
+
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
@@ -37,6 +37,6 @@ TODO: Add long description of the pod here.
     'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
   }
 
-  s.dependency 'SDWebImage', '~> 5.1'
+  s.dependency 'SDWebImage', '~> 5.5'
   s.dependency 'lottie-ios', '~> 2.5'
 end
