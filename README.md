@@ -5,13 +5,12 @@
 [![License](https://img.shields.io/cocoapods/l/SDWebImageLottiePlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageLottiePlugin)
 [![Platform](https://img.shields.io/cocoapods/p/SDWebImageLottiePlugin.svg?style=flat)](https://cocoapods.org/pods/SDWebImageLottiePlugin)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg?style=flat)](https://github.com/SDWebImage/SDWebImageLottiePlugin)
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
 [![codecov](https://codecov.io/gh/SDWebImage/SDWebImageLottiePlugin/branch/master/graph/badge.svg)](https://codecov.io/gh/SDWebImage/SDWebImageLottiePlugin)
 
 ## What's for
 SDWebImageLottiePlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the [Lottie](https://github.com/airbnb/lottie-ios) animation loading from JSON file.
 
-You can find more resource about about Lottie in their [Official Site](https://airbnb.design/lottie/).
+You can find more resource about Lottie in their [Official Site](https://airbnb.design/lottie/).
 
 ## Requirements
 
