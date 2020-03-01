@@ -11,15 +11,14 @@
 ## What's for
 SDWebImageLottiePlugin is a plugin for [SDWebImage](https://github.com/rs/SDWebImage/) framework, which provide the [Lottie](https://github.com/airbnb/lottie-ios) animation loading from JSON file.
 
-You can find more resource about about Lottie in their [Oficial Site](https://airbnb.design/lottie/).
+You can find more resource about about Lottie in their [Official Site](https://airbnb.design/lottie/).
 
 ## Requirements
 
-+ iOS 9+
++ iOS 8+
 + macOS 10.10+
 + tvOS 9+
 + Xcode 11+
-+ Swift 5
 
 ## Installation
 
@@ -40,38 +39,30 @@ SDWebImageLottiePlugin is available through [Carthage](https://github.com/Cartha
 github "SDWebImage/SDWebImageLottiePlugin"
 ```
 
-#### Swift Package Manager (Xcode 11+)
+## Lottie 2 && 3
 
-SDWebImageLottiePlugin is available through [Swift Package Manager](https://swift.org/package-manager).
+Although Lottie already release 3.x with the full Swift-rewritten code, however, during the performance testing of demo project, the Lottie 3 render performance is 60% slower than Lottie 2, many animation can not render as 60 FPS, while Lottie 2 did. See compare result at [here](https://github.com/SDWebImage/SDWebImageLottiePlugin/issues/1).
 
-Note: SwiftPM support iOS only, on tvOS && macOS support. If you want, ask Lottie community to add support to these platforms.
+So, to provide better performance on user, this plugin was written to support Lottie 2 currently, until Lottie community fix the performance problem. Track the issue [here](https://github.com/airbnb/lottie-ios/issues/895).
 
-```swift
-let package = Package(
-    dependencies: [
-        .package(url: "https://github.com/SDWebImage/SDWebImageLottiePlugin.git", from: "0.1")
-    ]
-)
-```
+If you really want Lottie 3 support, please checkout [1.x branch](https://github.com/SDWebImage/SDWebImageLottiePlugin/tree/1.x), which provide the Lottie 3 and fully written in Swift. Once Lottie 3 fix the performance issue, we will upgrade this plugin's major version to 1.0 and release with Lottie 3 support.
 
 ## Usage
+
++ Objective-C
+
+```objective-c
+LOTAnimationView *animationView;
+NSURL *lottieJSONURL;
+[animationView sd_setImageWithURL:lottieJSONURL];
+```
 
 + Swift
 
 ```swift
-let animationView: AnimationView
+let animationView: LOTAnimationView
 let lottieJSONURL: URL
 animationView.sd_setImage(with: lottieJSONURL)
-```
-
-+ Objective-C
-
-Note: Lottie 3.0 was rewritten with Swift, but there are still one compatible view left for Objective-C. Learn more here: http://airbnb.io/lottie/#/ios-migration
-
-```objective-c
-CompatibleAnimationView *animationView;
-NSURL *lottieJSONURL;
-[animationView sd_setImageWithURL:lottieJSONURL];
 ```
 
 ## Demo

@@ -8,34 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		3249A4F2240A54FB00AB1888 /* SDWebImageLottiePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 3249A4F0240A54FB00AB1888 /* SDWebImageLottiePlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3249A4FE240A554300AB1888 /* LottieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4F9240A554300AB1888 /* LottieImage.swift */; };
-		3249A4FF240A554300AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FA240A554300AB1888 /* CompatibleAnimationView+WebCache.swift */; };
-		3249A500240A554300AB1888 /* AnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FB240A554300AB1888 /* AnimationView+WebCache.swift */; };
-		3249A502240A554300AB1888 /* AnimatedControl+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FD240A554300AB1888 /* AnimatedControl+WebCache.swift */; };
-		3249A51D240A568900AB1888 /* AnimatedControl+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FD240A554300AB1888 /* AnimatedControl+WebCache.swift */; };
-		3249A51E240A568900AB1888 /* AnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FB240A554300AB1888 /* AnimationView+WebCache.swift */; };
-		3249A51F240A568900AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FA240A554300AB1888 /* CompatibleAnimationView+WebCache.swift */; };
-		3249A520240A568900AB1888 /* LottieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4F9240A554300AB1888 /* LottieImage.swift */; };
-		3249A521240A568900AB1888 /* AnimatedControl+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FD240A554300AB1888 /* AnimatedControl+WebCache.swift */; };
-		3249A522240A568900AB1888 /* AnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FB240A554300AB1888 /* AnimationView+WebCache.swift */; };
-		3249A523240A568900AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4FA240A554300AB1888 /* CompatibleAnimationView+WebCache.swift */; };
-		3249A524240A568900AB1888 /* LottieImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A4F9240A554300AB1888 /* LottieImage.swift */; };
 		3249A527240A58C800AB1888 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A526240A58C800AB1888 /* SDWebImage.framework */; };
 		3249A52B240A58D100AB1888 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A52A240A58D100AB1888 /* Lottie.framework */; };
 		3249A52E240A58E000AB1888 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A52D240A58E000AB1888 /* SDWebImage.framework */; };
 		3249A532240A58EA00AB1888 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A531240A58EA00AB1888 /* Lottie.framework */; };
 		3249A535240A58FB00AB1888 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A534240A58FB00AB1888 /* SDWebImage.framework */; };
 		3249A539240A590600AB1888 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3249A538240A590600AB1888 /* Lottie.framework */; };
+		32A1472D240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1472B240B59BB003CB0C5 /* LOTAnimationView+WebCache.h */; };
+		32A1472E240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1472B240B59BB003CB0C5 /* LOTAnimationView+WebCache.h */; };
+		32A1472F240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1472B240B59BB003CB0C5 /* LOTAnimationView+WebCache.h */; };
+		32A14730240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1472C240B59BB003CB0C5 /* LOTAnimationView+WebCache.m */; };
+		32A14731240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1472C240B59BB003CB0C5 /* LOTAnimationView+WebCache.m */; };
+		32A14732240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1472C240B59BB003CB0C5 /* LOTAnimationView+WebCache.m */; };
+		32A14735240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A14733240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h */; };
+		32A14736240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A14733240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h */; };
+		32A14737240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A14733240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h */; };
+		32A14738240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A14734240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m */; };
+		32A14739240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A14734240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m */; };
+		32A1473A240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A14734240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m */; };
+		32A1473D240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1473B240B5A98003CB0C5 /* LOTAnimatedImage.h */; };
+		32A1473E240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1473B240B5A98003CB0C5 /* LOTAnimatedImage.h */; };
+		32A1473F240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 32A1473B240B5A98003CB0C5 /* LOTAnimatedImage.h */; };
+		32A14740240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1473C240B5A98003CB0C5 /* LOTAnimatedImage.m */; };
+		32A14741240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1473C240B5A98003CB0C5 /* LOTAnimatedImage.m */; };
+		32A14742240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A1473C240B5A98003CB0C5 /* LOTAnimatedImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3249A4ED240A54FB00AB1888 /* SDWebImageLottiePlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageLottiePlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249A4F0240A54FB00AB1888 /* SDWebImageLottiePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SDWebImageLottiePlugin.h; path = Module/SDWebImageLottiePlugin.h; sourceTree = "<group>"; };
 		3249A4F1240A54FB00AB1888 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Module/Info.plist; sourceTree = "<group>"; };
-		3249A4F9240A554300AB1888 /* LottieImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieImage.swift; sourceTree = "<group>"; };
-		3249A4FA240A554300AB1888 /* CompatibleAnimationView+WebCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CompatibleAnimationView+WebCache.swift"; sourceTree = "<group>"; };
-		3249A4FB240A554300AB1888 /* AnimationView+WebCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimationView+WebCache.swift"; sourceTree = "<group>"; };
-		3249A4FD240A554300AB1888 /* AnimatedControl+WebCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnimatedControl+WebCache.swift"; sourceTree = "<group>"; };
 		3249A508240A562B00AB1888 /* SDWebImageLottiePlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageLottiePlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249A515240A563500AB1888 /* SDWebImageLottiePlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImageLottiePlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249A526240A58C800AB1888 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
@@ -44,6 +46,12 @@
 		3249A531240A58EA00AB1888 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/tvOS/Lottie.framework; sourceTree = "<group>"; };
 		3249A534240A58FB00AB1888 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/Mac/SDWebImage.framework; sourceTree = "<group>"; };
 		3249A538240A590600AB1888 /* Lottie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lottie.framework; path = Carthage/Build/Mac/Lottie.framework; sourceTree = "<group>"; };
+		32A1472B240B59BB003CB0C5 /* LOTAnimationView+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LOTAnimationView+WebCache.h"; sourceTree = "<group>"; };
+		32A1472C240B59BB003CB0C5 /* LOTAnimationView+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LOTAnimationView+WebCache.m"; sourceTree = "<group>"; };
+		32A14733240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LOTAnimatedControl+WebCache.h"; sourceTree = "<group>"; };
+		32A14734240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "LOTAnimatedControl+WebCache.m"; sourceTree = "<group>"; };
+		32A1473B240B5A98003CB0C5 /* LOTAnimatedImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LOTAnimatedImage.h; sourceTree = "<group>"; };
+		32A1473C240B5A98003CB0C5 /* LOTAnimatedImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LOTAnimatedImage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,10 +117,12 @@
 		3249A4F8240A554300AB1888 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3249A4FD240A554300AB1888 /* AnimatedControl+WebCache.swift */,
-				3249A4FB240A554300AB1888 /* AnimationView+WebCache.swift */,
-				3249A4FA240A554300AB1888 /* CompatibleAnimationView+WebCache.swift */,
-				3249A4F9240A554300AB1888 /* LottieImage.swift */,
+				32A1472B240B59BB003CB0C5 /* LOTAnimationView+WebCache.h */,
+				32A1472C240B59BB003CB0C5 /* LOTAnimationView+WebCache.m */,
+				32A14733240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h */,
+				32A14734240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m */,
+				32A1473B240B5A98003CB0C5 /* LOTAnimatedImage.h */,
+				32A1473C240B5A98003CB0C5 /* LOTAnimatedImage.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -137,6 +147,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A14735240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */,
+				32A1473D240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */,
+				32A1472D240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */,
 				3249A4F2240A54FB00AB1888 /* SDWebImageLottiePlugin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +158,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A1472E240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */,
+				32A14736240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */,
+				32A1473E240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +168,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A1472F240B59BB003CB0C5 /* LOTAnimationView+WebCache.h in Headers */,
+				32A14737240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.h in Headers */,
+				32A1473F240B5A98003CB0C5 /* LOTAnimatedImage.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,10 +300,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3249A4FE240A554300AB1888 /* LottieImage.swift in Sources */,
-				3249A4FF240A554300AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */,
-				3249A502240A554300AB1888 /* AnimatedControl+WebCache.swift in Sources */,
-				3249A500240A554300AB1888 /* AnimationView+WebCache.swift in Sources */,
+				32A14740240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */,
+				32A14738240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */,
+				32A14730240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,10 +310,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3249A520240A568900AB1888 /* LottieImage.swift in Sources */,
-				3249A51D240A568900AB1888 /* AnimatedControl+WebCache.swift in Sources */,
-				3249A51F240A568900AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */,
-				3249A51E240A568900AB1888 /* AnimationView+WebCache.swift in Sources */,
+				32A14741240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */,
+				32A14739240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */,
+				32A14731240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,10 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3249A524240A568900AB1888 /* LottieImage.swift in Sources */,
-				3249A521240A568900AB1888 /* AnimatedControl+WebCache.swift in Sources */,
-				3249A523240A568900AB1888 /* CompatibleAnimationView+WebCache.swift in Sources */,
-				3249A522240A568900AB1888 /* AnimationView+WebCache.swift in Sources */,
+				32A14742240B5A98003CB0C5 /* LOTAnimatedImage.m in Sources */,
+				32A1473A240B5A2F003CB0C5 /* LOTAnimatedControl+WebCache.m in Sources */,
+				32A14732240B59BB003CB0C5 /* LOTAnimationView+WebCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +465,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottiePlugin/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -477,7 +493,7 @@
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/SDWebImageLottiePlugin/Module/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

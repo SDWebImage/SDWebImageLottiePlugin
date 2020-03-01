@@ -12,7 +12,7 @@ import SDWebImageLottiePlugin
 
 class ViewController: UIViewController {
     
-    let animationView = AnimationView()
+    let animationView = LOTAnimationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,7 @@ class ViewController: UIViewController {
         animationView.sd_setImage(with: lottieUrl) { (image, error, cacheType, url) in
             self.animationView.play(fromProgress: 0,
                                toProgress: 1,
-                               loopMode: LottieLoopMode.repeat(5),
-                               completion: { (finished) in
+                               withCompletion: { (finished) in
                                 if finished {
                                   print("Animation Complete")
                                 } else {
