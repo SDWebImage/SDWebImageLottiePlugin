@@ -10,9 +10,12 @@
 #undef UIColor
 #import "LOTCompositionContainer.h"
 
+SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle = @"lottieBundle";
+
 @interface LOTAnimatedImage ()
 
 @property (nonatomic, copy, nullable) NSData *animatedImageData;
+@property (nonatomic, strong, nullable) NSBundle *assetBundle;
 @property (nonatomic, strong, nullable) LOTCompositionContainer *compositionContainer;
 
 @end
@@ -67,7 +70,17 @@
     if (![jsonObject isKindOfClass:NSDictionary.class]) {
         return nil;
     }
-    LOTComposition *composition = [LOTComposition animationFromJSON:jsonObject];
+    // Parse lottie bundle
+    NSBundle *bundle;
+    SDWebImageContext *context = options[SDImageCoderWebImageContext];
+    if (context[SDWebImageContextLottieBundle]) {
+        bundle = context[SDWebImageContextLottieBundle];
+    }
+    if (!bundle) {
+        bundle = [NSBundle mainBundle];
+    }
+    
+    LOTComposition *composition = [LOTComposition animationFromJSON:jsonObject inBundle:bundle];
     if (!composition) {
         return nil;
     }
@@ -79,6 +92,7 @@
     if (self) {
         _composition = composition;
         _animatedImageData = data;
+        _assetBundle = bundle;
     }
     return self;
 }
@@ -111,11 +125,20 @@
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:animatedImageData options:0 error:&error];
         if (error) {
             NSLog(@"%@", error);
-            return nil;
+            return self;
         }
-        LOTComposition *composition = [LOTComposition animationFromJSON:jsonObject];
+        // Parse lottie bundle
+        NSBundle *bundle;
+        NSString *bundlePath = [aDecoder decodeObjectOfClass:[NSString class] forKey:NSStringFromSelector(@selector(assetBundle))];
+        if (bundlePath.length > 0) {
+            bundle = [NSBundle bundleWithPath:bundlePath];
+        }
+        if (!bundle) {
+            bundle = [NSBundle mainBundle];
+        }
+        LOTComposition *composition = [LOTComposition animationFromJSON:jsonObject inBundle:bundle];
         if (!composition) {
-            return nil;
+            return self;
         }
         _composition = composition;
         _animatedImageData = animatedImageData;
@@ -131,6 +154,10 @@
     NSData *animatedImageData = self.animatedImageData;
     if (animatedImageData) {
         [aCoder encodeObject:animatedImageData forKey:NSStringFromSelector(@selector(animatedImageData))];
+    }
+    NSString *bundlePath = self.assetBundle.bundlePath;
+    if (bundlePath.length > 0) {
+        [aCoder encodeObject:bundlePath forKey:NSStringFromSelector(@selector(assetBundle))];
     }
 }
 
