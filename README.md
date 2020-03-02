@@ -79,19 +79,24 @@ This Lottie plugin use a wrapper class `LOTAnimatedImage` because of SDWebImage'
 
 ```objective-c
 LOTComposition *composition = [LOTComposition animationFromJSON:jsonDict];
-LOTAnimatedImage *animatedImage = [[LOTAnimationImage alloc] initWithComposition:composition];
+LOTAnimatedImage *animatedImage = [[LOTAnimatedImage alloc] initWithComposition:composition];
 // Snapshot Lottie animation frame
 UIImage *posterFrame = [animatedImage animatedImageAtIndex:0];
+NSTimeInterval duration = [animatedImage animatedImageDurationAtIndex: 0];
 ```
 
 + Swift
 
 ```swift
 let composition = LOTComposition(json: jsonDict)
-let animatedImage = LOTAnimationImage(composition: composition)
+let animatedImage = LOTAnimatedImage(composition: composition)
 // Snapshot Lottie animation frame
 UIImage *posterFrame = animatedImage.animatedImageFrame(at: 0)
+TimeInterval duration = animatedImage.animatedImageDuration(at: 0)
 ```
+
+Note:
++ The snapshot is a bitmap version and used for special cases, like thumbnail poster. You'd better not play it on SDAnimatedImageView. Because Lottie is a vector animation and LOTAnimationView use Core Animation for rendering, which is faster.
 
 ## Demo
 
