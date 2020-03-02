@@ -50,6 +50,21 @@ class Tests: XCTestCase {
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testAnimatedControlLoad() {
+        let exception = self.expectation(description: "AnimatedControl load lottie URL")
+        let animationView = LOTAnimatedSwitch()
+        let lottieURL = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/adrock/data.json")
+        animationView.sd_setImage(with: lottieURL) { (image, error, cacheType, url) in
+            XCTAssertNil(error)
+            let lottieImage = try! XCTUnwrap(image)
+            XCTAssertTrue(lottieImage.isKind(of: LOTAnimatedImage.self))
+            let animation = try! XCTUnwrap((lottieImage as! LOTAnimatedImage).composition)
+            XCTAssertEqual(animation.compBounds.size, CGSize(width: 690, height: 913))
+            exception.fulfill()
+        }
+        self.waitForExpectations(timeout: 5, handler: nil)
+    }
+    
     func testLottieImageWithBundle() throws {
         let bundle = Bundle(for: type(of: self))
         let fileURL = bundle.url(forResource: "Assets", withExtension: "json")!
