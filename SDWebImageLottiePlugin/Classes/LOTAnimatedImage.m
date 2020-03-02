@@ -30,7 +30,6 @@ SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle = @"lottieB
 #endif
     if (self) {
         _composition = composition;
-        _animatedImageData = nil;
     }
     return self;
 }
@@ -142,6 +141,7 @@ SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle = @"lottieB
         }
         _composition = composition;
         _animatedImageData = animatedImageData;
+        _assetBundle = bundle;
 #if SD_MAC
         self.size = composition.compBounds.size;
 #endif
@@ -155,8 +155,9 @@ SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle = @"lottieB
     if (animatedImageData) {
         [aCoder encodeObject:animatedImageData forKey:NSStringFromSelector(@selector(animatedImageData))];
     }
-    NSString *bundlePath = self.assetBundle.bundlePath;
-    if (bundlePath.length > 0) {
+    NSBundle *bundle = self.assetBundle;
+    NSString *bundlePath = bundle.bundlePath;
+    if (bundle && bundlePath.length > 0 && bundle != [NSBundle mainBundle]) {
         [aCoder encodeObject:bundlePath forKey:NSStringFromSelector(@selector(assetBundle))];
     }
 }
