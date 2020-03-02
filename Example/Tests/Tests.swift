@@ -3,6 +3,21 @@ import Lottie
 import SDWebImage
 @testable import SDWebImageLottiePlugin
 
+extension UIColor {
+    func toHexString() -> String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        let rgb: Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        
+        return String(format: "#%06x", rgb)
+    }
+}
+
 class Tests: XCTestCase {
     
     override func setUp() {
@@ -33,6 +48,18 @@ class Tests: XCTestCase {
             exception.fulfill()
         }
         self.waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testLottieImageWithBundle() throws {
+        let bundle = Bundle(for: type(of: self))
+        let fileURL = bundle.url(forResource: "Assets", withExtension: "json")!
+        let lottieData = try Data(contentsOf: fileURL)
+        let context = [SDWebImageContextOption.lottieBundle : bundle]
+        let lottieImage = LOTAnimatedImage(data: lottieData, scale: 1, options: [.webImageContext: context])!
+        let posterFrame = try XCTUnwrap(lottieImage.animatedImageFrame(at: 0))
+        // Pick the color to check
+        let color = try XCTUnwrap(posterFrame.sd_color(at: CGPoint(x: 150, y: 150)))
+        XCTAssertEqual(color.toHexString(), "#00d1c1");
     }
     
 }

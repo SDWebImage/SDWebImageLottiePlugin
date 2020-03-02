@@ -66,6 +66,8 @@ let lottieJSONURL: URL
 animationView.sd_setImage(with: lottieJSONURL)
 ```
 
+Note: If your Lottie json files contains references to App bundle images, you can use `SDWebImageContextLottieBundle` context option to pass the NSBundle object to load it.
+
 ### Advanced usage
 
 This Lottie plugin use a wrapper class `LOTAnimatedImage` because of SDWebImage's [customization architecture design](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#customization). Typically you should not care about this, however this can allows some advanced usage.

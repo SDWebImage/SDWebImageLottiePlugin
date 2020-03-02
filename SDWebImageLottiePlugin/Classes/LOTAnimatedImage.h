@@ -10,7 +10,13 @@
 #import <Lottie/Lottie.h>
 
 /**
- A wrapper class to allow `LOTComposition` to be compatible for SDWebImage loading/cache/rendering system. The `GIF` image loading from `LOTCompositionView+WebCache` category, will use this subclass instead of `UIImage`.
+ * The asset bundle used for lottie animation to load bitmap images in the animation. If you don't provide this context option, use main bundle instead.
+ * Defaults to nil, means main bundle. (NSBundle)
+ */
+FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle;
+
+/**
+ A wrapper class to allow `LOTComposition` to be compatible for SDWebImage loading/cache/rendering system. The lottie json loading from `LOTCompositionView+WebCache` category, will use this subclass instead of `UIImage`.
 
  @note Though this class conforms to `SDAnimatedImage` protocol, so it's compatible to be used for `SDAnimatedImageView`. But it's normally discouraged to do so. Because it does not provide optimization for animation rendering. Instead, use `SDAnimatedImage` class with `SDAnimatedImageView`.
  @note If you want to get the bitmap version of Lottie animation at specify frame, call `animatedImageFrameAtIndex:` will result a snapshot for frame.
@@ -18,7 +24,7 @@
 @interface LOTAnimatedImage : UIImage <SDAnimatedImage>
 
 /**
- The `LOTComposition` instance for Lottie representation.
+ The `LOTComposition` instance for Lottie representation. This property typically be nonnull if you init the image with the following methods. However, it will be null when you call super method like `initWithCGImage:`
 */
 @property (nonatomic, strong, readonly, nullable) LOTComposition *composition;
 
