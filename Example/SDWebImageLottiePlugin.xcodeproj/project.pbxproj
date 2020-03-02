@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		216B8040AC5A1CEBB8A1AADD /* Pods_SDWebImageLottiePlugin_Example_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9122A01A53A3D3143D4B6F21 /* Pods_SDWebImageLottiePlugin_Example_macOS.framework */; };
+		320F7B26240D0C8900272A7A /* Assets.json in Resources */ = {isa = PBXBuildFile; fileRef = 320F7B25240D0C8900272A7A /* Assets.json */; };
+		320F7B28240D0D2100272A7A /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 320F7B27240D0D2100272A7A /* img_0.png */; };
 		3249A542240A5ECB00AB1888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A541240A5ECB00AB1888 /* AppDelegate.swift */; };
 		3249A544240A5ECB00AB1888 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3249A543240A5ECB00AB1888 /* ViewController.swift */; };
 		3249A546240A5ECE00AB1888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3249A545240A5ECE00AB1888 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		20A0C01111066EB216549706 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		2D65A2027DF1B719B440F0EA /* Pods-SDWebImageLottiePlugin_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottiePlugin_Example.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottiePlugin_Example/Pods-SDWebImageLottiePlugin_Example.release.xcconfig"; sourceTree = "<group>"; };
+		320F7B25240D0C8900272A7A /* Assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Assets.json; sourceTree = "<group>"; };
+		320F7B27240D0D2100272A7A /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
 		3249A53F240A5ECB00AB1888 /* SDWebImageLottiePlugin_Example macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDWebImageLottiePlugin_Example macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3249A541240A5ECB00AB1888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3249A543240A5ECB00AB1888 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		320F7B23240D0C1000272A7A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				320F7B27240D0D2100272A7A /* img_0.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		320F7B24240D0C1700272A7A /* lotties */ = {
+			isa = PBXGroup;
+			children = (
+				320F7B25240D0C8900272A7A /* Assets.json */,
+			);
+			path = lotties;
+			sourceTree = "<group>";
+		};
 		3249A540240A5ECB00AB1888 /* SDWebImageLottiePlugin Example macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +183,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				320F7B24240D0C1700272A7A /* lotties */,
+				320F7B23240D0C1000272A7A /* images */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -331,6 +353,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				320F7B28240D0D2100272A7A /* img_0.png in Resources */,
+				320F7B26240D0C8900272A7A /* Assets.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

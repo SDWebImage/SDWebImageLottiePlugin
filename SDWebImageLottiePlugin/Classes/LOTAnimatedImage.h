@@ -16,7 +16,7 @@
 FOUNDATION_EXPORT SDWebImageContextOption _Nonnull const SDWebImageContextLottieBundle;
 
 /**
- A wrapper class to allow `LOTComposition` to be compatible for SDWebImage loading/cache/rendering system. The `GIF` image loading from `LOTCompositionView+WebCache` category, will use this subclass instead of `UIImage`.
+ A wrapper class to allow `LOTComposition` to be compatible for SDWebImage loading/cache/rendering system. The lottie json loading from `LOTCompositionView+WebCache` category, will use this subclass instead of `UIImage`.
 
  @note Though this class conforms to `SDAnimatedImage` protocol, so it's compatible to be used for `SDAnimatedImageView`. But it's normally discouraged to do so. Because it does not provide optimization for animation rendering. Instead, use `SDAnimatedImage` class with `SDAnimatedImageView`.
  @note If you want to get the bitmap version of Lottie animation at specify frame, call `animatedImageFrameAtIndex:` will result a snapshot for frame.
