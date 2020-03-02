@@ -66,7 +66,10 @@ let lottieJSONURL: URL
 animationView.sd_setImage(with: lottieJSONURL)
 ```
 
-Note: If your Lottie json files contains references to App bundle images, you can use `SDWebImageContextLottieBundle` context option to pass the NSBundle object to load it.
+Note:
++ You can also load lottie json files on `LOTAnimatedControl`, like switch button.
++ Lottie animation does not start automatically, you can use the completion block, or UITableView/UICollectionView's will display timing to play.
++ If your Lottie json files contains references to App bundle images, you can use `SDWebImageContextLottieBundle` context option to pass the NSBundle object to load it.
 
 ### Advanced usage
 

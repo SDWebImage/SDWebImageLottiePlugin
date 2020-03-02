@@ -8,17 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageLottiePlugin'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SDWebImageLottiePlugin.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '0.2.0'
+  s.summary          = 'SDWebImage integration with Lottie Animation using remote JSON files'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+SDWebImageLottiePlugin is a plugin for SDWebImage framework, which provide the Lottie animation loading from JSON file.
                        DESC
 
   s.homepage         = 'https://github.com/SDWebImage/SDWebImageLottiePlugin'
