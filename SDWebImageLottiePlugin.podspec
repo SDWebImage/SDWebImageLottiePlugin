@@ -20,8 +20,8 @@ SDWebImageLottiePlugin is a plugin for SDWebImage framework, which provide the L
   s.author           = { 'DreamPiggy' => 'lizhuoli1126@126.com' }
   s.source           = { :git => 'https://github.com/SDWebImage/SDWebImageLottiePlugin.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
+  s.ios.deployment_target = '9.0'
+  s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '9.0'
 
   s.source_files = 'SDWebImageLottiePlugin/Classes/**/*', 'SDWebImageLottiePlugin/Module/SDWebImageLottiePlugin.h'
@@ -31,6 +31,6 @@ SDWebImageLottiePlugin is a plugin for SDWebImage framework, which provide the L
     'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
   }
 
-  s.dependency 'SDWebImage', '~> 5.5'
+  s.dependency 'SDWebImage', '~> 5.10'
   s.dependency 'lottie-ios', '~> 2.5'
 end

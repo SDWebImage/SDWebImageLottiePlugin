@@ -14,8 +14,8 @@ You can find more resource about Lottie in their [Official Site](https://airbnb.
 
 ## Requirements
 
-+ iOS 8+
-+ macOS 10.10+
++ iOS 9+
++ macOS 10.11+
 + tvOS 9+
 + Xcode 11+
 
