@@ -35,4 +35,21 @@ class Tests: XCTestCase {
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testLottieImageWithBundle()  {
+        let exception = self.expectation(description: "AnimationView load lottie URL with bundle context")
+        let animationView = AnimationView()
+        animationView.frame = CGRect.init(origin: .zero, size: CGSize.init(width:1024,height:500))
+        let bundle = Bundle(for: type(of: self))
+        let fileURL = bundle.url(forResource: "Assets", withExtension: "json")!
+        let context = [SDWebImageContextOption.lottieBundle : bundle]
+        animationView.sd_setImage(with: fileURL) { (image, error, cacheType, url) in
+            XCTAssertNil(error)
+            let lottieImage = try! XCTUnwrap(image)
+            XCTAssertTrue(lottieImage.isKind(of: LottieImage.self))
+            let animation = try! XCTUnwrap((lottieImage as! LottieImage).animation)
+            XCTAssertEqual(animation.endFrame, 120)
+            exception.fulfill()
+        }
+        self.waitForExpectations(timeout: 5, handler: nil)
+    }
 }

@@ -20,6 +20,8 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B0EA0AD78069CE0A18453D4A /* Pods_SDWebImageLottiePlugin_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81030B8908307D3E713DC8A7 /* Pods_SDWebImageLottiePlugin_Tests.framework */; };
+		B5FC50E92753A82C003FF67F /* img_0.png in Resources */ = {isa = PBXBuildFile; fileRef = B5FC50E62753A82C003FF67F /* img_0.png */; };
+		B5FC50EA2753A82C003FF67F /* Assets.json in Resources */ = {isa = PBXBuildFile; fileRef = B5FC50E82753A82C003FF67F /* Assets.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		81030B8908307D3E713DC8A7 /* Pods_SDWebImageLottiePlugin_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottiePlugin_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9122A01A53A3D3143D4B6F21 /* Pods_SDWebImageLottiePlugin_Example_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottiePlugin_Example_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA34A40BD006600CF64CF4E /* Pods-SDWebImageLottiePlugin_Example macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SDWebImageLottiePlugin_Example macOS.release.xcconfig"; path = "Target Support Files/Pods-SDWebImageLottiePlugin_Example macOS/Pods-SDWebImageLottiePlugin_Example macOS.release.xcconfig"; sourceTree = "<group>"; };
+		B5FC50E62753A82C003FF67F /* img_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_0.png; sourceTree = "<group>"; };
+		B5FC50E82753A82C003FF67F /* Assets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Assets.json; sourceTree = "<group>"; };
 		B9C5C1EF9FDCB648339EA571 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BD49B9C626784E2C27B69814 /* SDWebImageLottiePlugin.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SDWebImageLottiePlugin.podspec; path = ../SDWebImageLottiePlugin.podspec; sourceTree = "<group>"; };
 		E32CA5B95EB732D4745F2D2E /* Pods_SDWebImageLottiePlugin_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SDWebImageLottiePlugin_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +167,8 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B5FC50E52753A82C003FF67F /* images */,
+				B5FC50E72753A82C003FF67F /* lotties */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -198,6 +204,22 @@
 				9DA34A40BD006600CF64CF4E /* Pods-SDWebImageLottiePlugin_Example macOS.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B5FC50E52753A82C003FF67F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC50E62753A82C003FF67F /* img_0.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		B5FC50E72753A82C003FF67F /* lotties */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC50E82753A82C003FF67F /* Assets.json */,
+			);
+			path = lotties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +353,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5FC50EA2753A82C003FF67F /* Assets.json in Resources */,
+				B5FC50E92753A82C003FF67F /* img_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
