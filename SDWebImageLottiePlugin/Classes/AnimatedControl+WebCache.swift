@@ -27,6 +27,7 @@ extension AnimatedControl {
      *                       is nil and the second parameter may contain an NSError. The third parameter is a Boolean
      *                       indicating if the image was retrieved from the local cache or from the network.
      *                       The fourth parameter is the original image url.
+     * Note: If your Lottie json files contains references to App bundle images, you can use `.lottieBundle` context option to pass the NSBundle object to load it.
      */
     public func sd_setImage(with url: URL?, placeholderImage placeholder: UIImage? = nil, options: SDWebImageOptions = [], context: [SDWebImageContextOption : Any]? = nil, progress progressBlock: SDImageLoaderProgressBlock? = nil, completed completedBlock: SDExternalCompletionBlock? = nil) {
         var context = context ?? [:]
@@ -34,6 +35,10 @@ extension AnimatedControl {
         self.sd_internalSetImage(with: url, placeholderImage: placeholder, options: options, context: context, setImageBlock: { [weak self] (image, data, cacheType, url) in
             if let lottieImage = image as? LottieImage {
                 self?.animation = lottieImage.animation
+                if let bundle = context[.lottieBundle] as? Bundle{
+                    let imageProvider = BundleImageProvider(bundle: bundle, searchPath: "")
+                    self?.animationView.imageProvider = imageProvider
+                }
             } else {
                 self?.animation = nil
             }

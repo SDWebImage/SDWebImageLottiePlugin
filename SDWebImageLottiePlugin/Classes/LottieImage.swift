@@ -9,6 +9,15 @@
 import SDWebImage
 import Lottie
 
+/**
+ * The asset bundle used for lottie animation to load bitmap images in the animation. If you don't provide this context option, use main bundle instead.
+ * Defaults to nil, means main bundle. (NSBundle)
+ */
+
+extension SDWebImageContextOption{
+    public static let lottieBundle : SDWebImageContextOption = SDWebImageContextOption(rawValue: "lottieBundle");
+}
+
 #if os(macOS)
 public typealias PlatformImage = NSImage
 #else
