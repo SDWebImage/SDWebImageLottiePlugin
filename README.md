@@ -21,22 +21,37 @@ You can find more resource about Lottie in their [Official Site](https://airbnb.
 
 ## Installation
 
+#### Swift Package Manager
+
+SDWebImageWebPCoder is available through [Swift Package Manager](https://swift.org/package-manager).
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImageLottiePlugin.git", from: "1.0.0")
+    ]
+)
+```
+
 #### CocoaPods
 
 SDWebImageLottiePlugin is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SDWebImageLottiePlugin'
+pod 'SDWebImageLottiePlugin', '~> 1.0'
 ```
 
-#### Carthage
+#### Carthage (Deprecated)
 
 SDWebImageLottiePlugin is available through [Carthage](https://github.com/Carthage/Carthage).
 
 ```
-github "SDWebImage/SDWebImageLottiePlugin"
+github "SDWebImage/SDWebImageLottiePlugin", ~> 1.0
 ```
+
+Note:
+1. Carthage macOS integration contains issue, because the module name is `Lottie_macOS` but not `Lottie`, wait the issue [here](https://github.com/airbnb/lottie-ios/issues/1638) been fixed 👀
 
 ## Lottie 2 && Objective-C
 
