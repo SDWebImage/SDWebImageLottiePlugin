@@ -42,7 +42,7 @@ github "SDWebImage/SDWebImageLottiePlugin"
 
 Lottie 3.4 version's new `Lottie.RenderingEngine = .coreAnimation` solve the huge performance regression in the issue [here](https://github.com/airbnb/lottie-ios/issues/895) 🚀
 
-So from SDWebImageLottiePlugin v1.0.0, we drop the Lottie 2 support, as well as the Objective-C support because Lottie 3 use the pure Swift.
+So from SDWebImageLottiePlugin v1.0.0, we drop the Lottie 2 support, as well as the Objective-C support because Lottie 3 use pure Swift. And therefore, we drop the iOS 9-10 support because the upstream dependency need iOS 11+.
 
 For user who still use Lottie 2 and Objective-C, please check the 0.x version updated to [0.3.0](https://github.com/SDWebImage/SDWebImageLottiePlugin/releases/tag/0.3.0)
 
@@ -59,9 +59,25 @@ animationView.sd_setImage(with: lottieJSONURL)
 ```
 
 Note:
-+ You can also load lottie json files on `LOTAnimatedControl`, like switch button.
++ You can also load lottie json files on `AnimatedControl`, like switch button.
 + Lottie animation does not start automatically, you can use the completion block, or UITableView/UICollectionView's will display timing to play.
-+ If your Lottie json files contains references to App bundle images, you can use `SDWebImageContextLottieBundle` context option to pass the NSBundle object to load it.
+
+```swift
+animationView.sd_setImage(with: lottieUrl, completed: { _,_,_,_ in
+    self.animationView.play(fromProgress: 0, toProgress: 1, loopMode: .repeat(5)) { finished in
+        // ...
+    }
+}
+```
+
+
++ If your Lottie json files contains references to App bundle images, just set the `imageProvider` before the lottie animation start.
+
+```swift
+let bundle = Bundle(for: MyBundleClass.self)
+animationView.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
+animationView.sd_setImage(with: lottieUrl)
+```
 
 ### Advanced usage
 
@@ -72,6 +88,8 @@ This Lottie plugin use a wrapper class `LottieImage` because of SDWebImage's [cu
 ```swift
 let animation = try? JSONDecoder().decode(Animation.self, from: data)
 let animatedImage = LottieImage(animation: animation)
+// Optional, custom image bundle
+LottieImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
 // Snapshot Lottie animation frame
 UIImage *posterFrame = animatedImage.animatedImageFrame(at: 0)
 TimeInterval duration = animatedImage.animatedImageDuration(at: 0)

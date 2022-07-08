@@ -65,16 +65,39 @@ class Tests: XCTestCase {
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testLottieImageWithBundle() throws {
+        let bundle = Bundle(for: type(of: self))
+        let fileURL = bundle.url(forResource: "Assets", withExtension: "json")!
+        let lottieData = try Data(contentsOf: fileURL)
+        let animation = try JSONDecoder().decode(Animation.self, from: lottieData)
+        let animationView = AnimationView(animation: animation, imageProvider: BundleImageProvider(bundle: bundle, searchPath: nil))
+        let renderer = SDGraphicsImageRenderer(size: animation.size)
+        let viewImage = renderer.image { context in
+            animationView.drawHierarchy(in: CGRect(origin: CGPoint(x: 0, y: 0), size: animation.size), afterScreenUpdates: true)
+        }
+        // Pick the color to check
+        let color1 = try XCTUnwrap(viewImage.sd_color(at: CGPoint(x: 150, y: 150)))
+        XCTAssertEqual(color1.toHexString(), "#00d1c1");
+        
+        let lottieImage = LottieImage(animation: animation)
+        lottieImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
+        let posterFrame = try XCTUnwrap(lottieImage.animatedImageFrame(at: 0))
+        // Pick the color to check
+        let color2 = try XCTUnwrap(posterFrame.sd_color(at: CGPoint(x: 150, y: 150)))
+        XCTAssertEqual(color2.toHexString(), "#00d1c1");
+    }
+
+    
     func testLottieImageExtractFrame() {
         let exception = self.expectation(description: "LottieImage extract frame")
         let lottieUrl = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/gatin/data.json")!
         let task = URLSession.shared.dataTask(with: lottieUrl) { data, _, _ in
             if let data = data, let animation = try? JSONDecoder().decode(Animation.self, from: data) {
                 let lottieImage = LottieImage(animation: animation)
-                let frameCount = lottieImage?.animatedImageFrameCount ?? 0
+                let frameCount = lottieImage.animatedImageFrameCount
                 XCTAssertEqual(frameCount, 80)
-                let posterFrame = lottieImage?.animatedImageFrame(at: 0)
-                let lastFrame = lottieImage?.animatedImageFrame(at: frameCount - 1)
+                let posterFrame = lottieImage.animatedImageFrame(at: 0)
+                let lastFrame = lottieImage.animatedImageFrame(at: frameCount - 1)
                 XCTAssertNotNil(posterFrame)
                 XCTAssertNotNil(lastFrame)
                 XCTAssertNotEqual(posterFrame, lastFrame)

@@ -32,9 +32,18 @@ public class LottieImage : PlatformImage, SDAnimatedImageProtocol {
     /// The lottie animation model
     public var animation: Animation?
     
+    /// The lottie image provider, used for frame extracting
+    public var imageProvider: AnimationImageProvider?
+    
+    /// The lottie text provider, used for frame extracting
+    public var textProvider: AnimationTextProvider?
+    
+    /// The lottie font provider, used for frame extracting
+    public var fontProvider: AnimationFontProvider?
+    
     /// Init the LottieImage with lottie animation model
     /// - Parameter animation: animation
-    public required init?(animation: Animation) {
+    public required init(animation: Animation) {
         #if os(iOS) || os(tvOS)
         super.init()
         #else
@@ -127,7 +136,7 @@ public class LottieImage : PlatformImage, SDAnimatedImageProtocol {
         guard let animation = animation else {
             return nil
         }
-        let compositionLayer = LottieCompositionLayer(animation: animation)
+        let compositionLayer = LottieCompositionLayer(animation: animation, imageProvider: imageProvider, textProvider: textProvider, fontProvider: fontProvider)
         return compositionLayer
     }()
     
@@ -146,7 +155,7 @@ public class LottieImage : PlatformImage, SDAnimatedImageProtocol {
         return image
     }
     
-    // MARK: - SDAnimatedImageProvider
+    // MARK: - SDAnimatedImageProvider && Frame Extracting
     public private(set) var animatedImageData: Data?
     
     public var animatedImageFrameCount: UInt {
