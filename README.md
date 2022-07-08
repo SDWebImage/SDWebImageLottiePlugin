@@ -14,12 +14,24 @@ You can find more resource about Lottie in their [Official Site](https://airbnb.
 
 ## Requirements
 
-+ iOS 9+
++ iOS 11+
 + macOS 10.11+
-+ tvOS 9+
++ tvOS 11+
 + Xcode 11+
 
 ## Installation
+
+#### Swift Package Manager
+
+SDWebImageWebPCoder is available through [Swift Package Manager](https://swift.org/package-manager).
+
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/SDWebImage/SDWebImageLottiePlugin.git", from: "1.0.0")
+    ]
+)
+```
 
 #### CocoaPods
 
@@ -27,76 +39,79 @@ SDWebImageLottiePlugin is available through [CocoaPods](https://cocoapods.org). 
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'SDWebImageLottiePlugin'
+pod 'SDWebImageLottiePlugin', '~> 1.0'
 ```
 
-#### Carthage
+#### Carthage (Deprecated)
 
 SDWebImageLottiePlugin is available through [Carthage](https://github.com/Carthage/Carthage).
 
 ```
-github "SDWebImage/SDWebImageLottiePlugin"
+github "SDWebImage/SDWebImageLottiePlugin", ~> 1.0
 ```
 
-## Lottie 2 && 3
+Note:
+1. Carthage macOS integration contains issue, because the module name is `Lottie_macOS` but not `Lottie`, wait the issue [here](https://github.com/airbnb/lottie-ios/issues/1638) been fixed 👀
 
-Although Lottie already release 3.x with the full Swift-rewritten code, however, during the performance testing of demo project, the Lottie 3 render performance is 60% slower than Lottie 2, many animation can not render as 60 FPS, while Lottie 2 did. See compare result at [here](https://github.com/SDWebImage/SDWebImageLottiePlugin/issues/1).
+## Lottie 2 && Objective-C
 
-So, to provide better performance on user, this plugin was written to support Lottie 2 currently, until Lottie community fix the performance problem. Track the issue [here](https://github.com/airbnb/lottie-ios/issues/895).
+Lottie 3.4 version's new `Lottie.RenderingEngine = .coreAnimation` solve the huge performance regression in the issue [here](https://github.com/airbnb/lottie-ios/issues/895) 🚀
 
-If you really want Lottie 3 support, please checkout [1.x branch](https://github.com/SDWebImage/SDWebImageLottiePlugin/tree/1.x), which provide the Lottie 3 and fully written in Swift. Once Lottie 3 fix the performance issue, we will upgrade this plugin's major version to 1.0 and release with Lottie 3 support.
+So from SDWebImageLottiePlugin v1.0.0, we drop the Lottie 2 support, as well as the Objective-C support because Lottie 3 use pure Swift. And therefore, we drop the iOS 9-10 support because the upstream dependency need iOS 11+.
+
+For user who still use Lottie 2 and Objective-C, please check the 0.x version updated to [0.3.0](https://github.com/SDWebImage/SDWebImageLottiePlugin/releases/tag/0.3.0)
 
 ## Usage
 
 ### Load Lottie from remote JSON
 
-+ Objective-C
-
-```objective-c
-LOTAnimationView *animationView;
-NSURL *lottieJSONURL;
-[animationView sd_setImageWithURL:lottieJSONURL];
-```
-
 + Swift
 
 ```swift
-let animationView: LOTAnimationView
+let animationView: Lottie.AnimationView
 let lottieJSONURL: URL
 animationView.sd_setImage(with: lottieJSONURL)
 ```
 
 Note:
-+ You can also load lottie json files on `LOTAnimatedControl`, like switch button.
++ You can also load lottie json files on `AnimatedControl`, like switch button.
 + Lottie animation does not start automatically, you can use the completion block, or UITableView/UICollectionView's will display timing to play.
-+ If your Lottie json files contains references to App bundle images, you can use `SDWebImageContextLottieBundle` context option to pass the NSBundle object to load it.
+
+```swift
+animationView.sd_setImage(with: lottieUrl, completed: { _,_,_,_ in
+    self.animationView.play(fromProgress: 0, toProgress: 1, loopMode: .repeat(5)) { finished in
+        // ...
+    }
+}
+```
+
+
++ If your Lottie json files contains references to App bundle images, just set the `imageProvider` before the lottie animation start.
+
+```swift
+let bundle = Bundle(for: MyBundleClass.self)
+animationView.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
+animationView.sd_setImage(with: lottieUrl)
+```
 
 ### Advanced usage
 
-This Lottie plugin use a wrapper class `LOTAnimatedImage` because of SDWebImage's [customization architecture design](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#customization). Typically you should not care about this, however this can allows some advanced usage.
-
-+ Objective-C
-
-```objective-c
-LOTComposition *composition = [LOTComposition animationFromJSON:jsonDict];
-LOTAnimatedImage *animatedImage = [[LOTAnimatedImage alloc] initWithComposition:composition];
-// Snapshot Lottie animation frame
-UIImage *posterFrame = [animatedImage animatedImageAtIndex:0];
-NSTimeInterval duration = [animatedImage animatedImageDurationAtIndex: 0];
-```
+This Lottie plugin use a wrapper class `LottieImage` because of SDWebImage's [customization architecture design](https://github.com/SDWebImage/SDWebImage/wiki/Advanced-Usage#customization). Typically you should not care about this, however this can allows some advanced usage.
 
 + Swift
 
 ```swift
-let composition = LOTComposition(json: jsonDict)
-let animatedImage = LOTAnimatedImage(composition: composition)
+let animation = try? JSONDecoder().decode(Animation.self, from: data)
+let animatedImage = LottieImage(animation: animation)
+// Optional, custom image bundle
+LottieImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
 // Snapshot Lottie animation frame
 UIImage *posterFrame = animatedImage.animatedImageFrame(at: 0)
 TimeInterval duration = animatedImage.animatedImageDuration(at: 0)
 ```
 
 Note:
-+ The snapshot is a bitmap version and used for special cases, like thumbnail poster. You'd better not play it on SDAnimatedImageView. Because Lottie is a vector animation and LOTAnimationView use Core Animation for rendering, which is faster.
++ The snapshot is a bitmap version and used for special cases, like thumbnail poster. You'd better not play it on `SDAnimatedImageView`. Because Lottie is a vector animation and `Lottie.AnimationView` use Core Animation for rendering, which is faster.
 
 ## Demo
 
