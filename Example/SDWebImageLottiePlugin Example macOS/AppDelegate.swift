@@ -7,6 +7,7 @@
 */
 
 import Cocoa
+import Lottie
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -15,6 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        LottieConfiguration.shared.renderingEngine = .coreAnimation
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

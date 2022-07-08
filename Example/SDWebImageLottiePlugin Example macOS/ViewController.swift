@@ -9,6 +9,7 @@
 import Cocoa
 import Lottie
 import SDWebImageLottiePlugin
+import SDWebImage
 
 class ViewController: NSViewController {
     
