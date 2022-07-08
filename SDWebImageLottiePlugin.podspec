@@ -25,10 +25,13 @@ SDWebImageLottiePlugin is a plugin for SDWebImage framework, which provide the L
   s.tvos.deployment_target = '11.0'
 
   s.source_files = 'SDWebImageLottiePlugin/Classes/**/*'
+  s.swift_version = '5'
 
   s.pod_target_xcconfig = {
     'SUPPORTS_MACCATALYST' => 'YES',
-    'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO'
+    'BUILD_LIBRARY_FOR_DISTRIBUTION' => 'YES',
+    'DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER' => 'NO',
+    'OTHER_SWIFT_FLAGS' => '$(inherited) -Xfrontend -disable-testable-attr-requires-testable-module'
   }
 
   s.dependency 'SDWebImage', '~> 5.10'
