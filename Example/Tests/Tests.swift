@@ -65,4 +65,25 @@ class Tests: XCTestCase {
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
+    func testLottieImageExtractFrame() {
+        let exception = self.expectation(description: "LottieImage extract frame")
+        let lottieUrl = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/gatin/data.json")!
+        let task = URLSession.shared.dataTask(with: lottieUrl) { data, _, _ in
+            if let data = data, let animation = try? JSONDecoder().decode(Animation.self, from: data) {
+                let lottieImage = LottieImage(animation: animation)
+                let frameCount = lottieImage?.animatedImageFrameCount ?? 0
+                XCTAssertEqual(frameCount, 80)
+                let posterFrame = lottieImage?.animatedImageFrame(at: 0)
+                let lastFrame = lottieImage?.animatedImageFrame(at: frameCount - 1)
+                XCTAssertNotNil(posterFrame)
+                XCTAssertNotNil(lastFrame)
+                XCTAssertNotEqual(posterFrame, lastFrame)
+                exception.fulfill()
+            } else {
+                XCTFail()
+            }
+        }
+        task.resume()
+        self.waitForExpectations(timeout: 5, handler: nil)
+    }
 }
