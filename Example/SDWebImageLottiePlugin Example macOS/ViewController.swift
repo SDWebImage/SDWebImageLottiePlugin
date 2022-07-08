@@ -1,10 +1,10 @@
-//
-//  ViewController.swift
-//  SDWebImageLottiePlugin_Example macOS
-//
-//  Created by 李卓立 on 2020/2/29.
-//  Copyright © 2020 CocoaPods. All rights reserved.
-//
+/*
+* This file is part of the SDWebImage package.
+* (c) DreamPiggy <lizhuoli1126@126.com>
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+*/
 
 import Cocoa
 import Lottie
@@ -12,7 +12,7 @@ import SDWebImageLottiePlugin
 
 class ViewController: NSViewController {
     
-    let animationView = LOTAnimationView()
+    let animationView = AnimationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +22,15 @@ class ViewController: NSViewController {
         view.addSubview(animationView)
         
         let lottieUrl = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/adrock/data.json")
-        animationView.sd_setImage(with: lottieUrl) { (image, error, cacheType, url) in
-            self.animationView.play(fromProgress: 0,
-                               toProgress: 1,
-                               withCompletion: { (finished) in
-                                if finished {
-                                  print("Animation Complete")
-                                } else {
-                                  print("Animation cancelled")
-                                }
-            })
-        }
+        animationView.sd_setImage(with: lottieUrl, completed: { _,_,_,_ in
+            self.animationView.play(fromProgress: 0, toProgress: 1, loopMode: .repeat(5)) { finished in
+                if finished {
+                    print("Animation Complete")
+                } else {
+                    print("Animation cancelled")
+                }
+            }
+        })
     }
 
 }

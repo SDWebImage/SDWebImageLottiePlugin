@@ -9,11 +9,12 @@
 import UIKit
 import Lottie
 import SDWebImageLottiePlugin
+import SDWebImage
 
 class ViewController: UIViewController {
     
-    let animationView = LOTAnimationView()
-
+    let animationView = AnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         animationView.contentMode = .scaleAspectFit
@@ -22,18 +23,16 @@ class ViewController: UIViewController {
         view.addSubview(animationView)
         
         let lottieUrl = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/gatin/data.json")
-        animationView.sd_setImage(with: lottieUrl) { (image, error, cacheType, url) in
-            self.animationView.play(fromProgress: 0,
-                               toProgress: 1,
-                               withCompletion: { (finished) in
-                                if finished {
-                                  print("Animation Complete")
-                                } else {
-                                  print("Animation cancelled")
-                                }
-            })
-        }
+        animationView.sd_setImage(with: lottieUrl, completed: { _,_,_,_ in
+            self.animationView.play(fromProgress: 0, toProgress: 1, loopMode: .repeat(5)) { finished in
+                if finished {
+                    print("Animation Complete")
+                } else {
+                    print("Animation cancelled")
+                }
+            }
+        })
     }
-
+    
 }
 

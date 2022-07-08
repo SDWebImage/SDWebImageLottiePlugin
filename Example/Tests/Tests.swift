@@ -37,44 +37,32 @@ class Tests: XCTestCase {
     
     func testAnimatedImageViewLoad() {
         let exception = self.expectation(description: "AnimationView load lottie URL")
-        let animationView = LOTAnimationView()
+        let animationView = AnimationView()
         let lottieURL = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/happy2016/data.json")
-        animationView.sd_setImage(with: lottieURL) { (image, error, cacheType, url) in
+        animationView.sd_setImage(with: lottieURL, completed: { (image, error, cacheType, url) in
             XCTAssertNil(error)
             let lottieImage = try! XCTUnwrap(image)
-            XCTAssertTrue(lottieImage.isKind(of: LOTAnimatedImage.self))
-            let animation = try! XCTUnwrap((lottieImage as! LOTAnimatedImage).composition)
-            XCTAssertEqual(animation.compBounds.size, CGSize(width: 1920, height: 1080))
+            XCTAssertTrue(lottieImage.isKind(of: LottieImage.self))
+            let animation = try! XCTUnwrap((lottieImage as! LottieImage).animation)
+            XCTAssertEqual(animation.size, CGSize(width: 1920, height: 1080))
             exception.fulfill()
-        }
+        })
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
     func testAnimatedControlLoad() {
         let exception = self.expectation(description: "AnimatedControl load lottie URL")
-        let animationView = LOTAnimatedSwitch()
+        let animationView = AnimatedSwitch()
         let lottieURL = URL(string: "https://raw.githubusercontent.com/airbnb/lottie-web/master/demo/adrock/data.json")
-        animationView.sd_setImage(with: lottieURL) { (image, error, cacheType, url) in
+        animationView.sd_setImage(with: lottieURL, completed: { (image, error, cacheType, url) in
             XCTAssertNil(error)
             let lottieImage = try! XCTUnwrap(image)
-            XCTAssertTrue(lottieImage.isKind(of: LOTAnimatedImage.self))
-            let animation = try! XCTUnwrap((lottieImage as! LOTAnimatedImage).composition)
-            XCTAssertEqual(animation.compBounds.size, CGSize(width: 690, height: 913))
+            XCTAssertTrue(lottieImage.isKind(of: LottieImage.self))
+            let animation = try! XCTUnwrap((lottieImage as! LottieImage).animation)
+            XCTAssertEqual(animation.size, CGSize(width: 690, height: 913))
             exception.fulfill()
-        }
+        })
         self.waitForExpectations(timeout: 5, handler: nil)
-    }
-    
-    func testLottieImageWithBundle() throws {
-        let bundle = Bundle(for: type(of: self))
-        let fileURL = bundle.url(forResource: "Assets", withExtension: "json")!
-        let lottieData = try Data(contentsOf: fileURL)
-        let context = [SDWebImageContextOption.lottieBundle : bundle]
-        let lottieImage = LOTAnimatedImage(data: lottieData, scale: 1, options: [.webImageContext: context])!
-        let posterFrame = try XCTUnwrap(lottieImage.animatedImageFrame(at: 0))
-        // Pick the color to check
-        let color = try XCTUnwrap(posterFrame.sd_color(at: CGPoint(x: 150, y: 150)))
-        XCTAssertEqual(color.toHexString(), "#00d1c1");
     }
     
 }
