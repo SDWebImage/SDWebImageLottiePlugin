@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SDWebImageLottiePlugin'
-  s.version          = '0.3.0'
+  s.version          = '1.0.0'
   s.summary          = 'SDWebImage integration with Lottie Animation using remote JSON files'
 
   s.description      = <<-DESC
@@ -24,7 +24,7 @@ SDWebImageLottiePlugin is a plugin for SDWebImage framework, which provide the L
   s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '11.0'
 
-  s.source_files = 'SDWebImageLottiePlugin/Classes/**/*', 'SDWebImageLottiePlugin/Module/SDWebImageLottiePlugin.h'
+  s.source_files = 'SDWebImageLottiePlugin/Classes/**/*'
 
   s.pod_target_xcconfig = {
     'SUPPORTS_MACCATALYST' => 'YES',
