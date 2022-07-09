@@ -104,7 +104,7 @@ This Lottie plugin use a wrapper class `LottieImage` because of SDWebImage's [cu
 let animation = try? JSONDecoder().decode(Animation.self, from: data)
 let animatedImage = LottieImage(animation: animation)
 // Optional, custom image bundle
-LottieImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
+animatedImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
 // Snapshot Lottie animation frame
 let posterFrame = animatedImage.animatedImageFrame(at: 0)
 let duration = animatedImage.animatedImageDuration(at: 0)
