@@ -106,8 +106,8 @@ let animatedImage = LottieImage(animation: animation)
 // Optional, custom image bundle
 LottieImage.imageProvider = BundleImageProvider(bundle: bundle, searchPath: nil)
 // Snapshot Lottie animation frame
-UIImage *posterFrame = animatedImage.animatedImageFrame(at: 0)
-TimeInterval duration = animatedImage.animatedImageDuration(at: 0)
+let posterFrame = animatedImage.animatedImageFrame(at: 0)
+let duration = animatedImage.animatedImageDuration(at: 0)
 ```
 
 Note:
