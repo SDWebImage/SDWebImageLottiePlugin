@@ -55,7 +55,7 @@ Note:
 
 ## Lottie 2 && Objective-C
 
-Lottie 3.4 version's new `Lottie.RenderingEngine = .coreAnimation` solve the huge performance regression in the issue [here](https://github.com/airbnb/lottie-ios/issues/895) 🚀
+Lottie 3.4 version's `LottieConfiguration.shared.renderingEngine = .coreAnimation` solve the huge performance regression in the issue [here](https://github.com/airbnb/lottie-ios/issues/895) 🚀
 
 So from SDWebImageLottiePlugin v1.0.0, we drop the Lottie 2 support, as well as the Objective-C support because Lottie 3 use pure Swift. And therefore, we drop the iOS 9-10 support because the upstream dependency need iOS 11+.
 
